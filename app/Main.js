@@ -1,15 +1,21 @@
 import React from "react"
 import ReactDOM from "react-dom"
 
-function Example() {
+import Header from "./components/Header"
+import HomeGuest from "./components/HomeGuest"
+import Footer from "./components/Footer"
+
+function Main() {
     return (
-        <div>
-            <h1>Heya</h1>
-        </div>
+        <>
+            <Header />
+            <HomeGuest />
+            <Footer />
+        </>
     )
 }
 
-ReactDOM.render(<Example />, document.querySelector("#root"))
+ReactDOM.render(<Main />, document.querySelector("#root"))
 
 if (module.hot) {
     module.hot.accept()
