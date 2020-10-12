@@ -1,12 +1,24 @@
 import React from "react"
 import Container from "./Container"
 
+import Axios from "axios"
+
 function HomeGuest() {
+    async function handleSubmit(e) {
+        e.preventDefault()
+        try {
+            await Axios.post("http://localhost:8080/register", { username: "test", email: "test@test.com", password: "qwerty123456" })
+            console.log("User was successfully created")
+        } catch (e) {
+            console.log(e.response.data)
+        }
+    }
+
     return (
         <Container title="Home Guest" wide={true}>
             <div className="row align-items-center">
                 <div className="col-lg-5 pb-3 py-lg-5 mx-auto">
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <div className="form-group">
                             <label htmlFor="username-register" className="text-muted mb-1">
                                 <small>Username</small>
