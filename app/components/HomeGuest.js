@@ -1,8 +1,9 @@
 import React from "react"
+import Container from "./Container"
 
 function HomeGuest() {
     return (
-        <div className="container py-md-5">
+        <Container title="Home Guest" wide={true}>
             <div className="row align-items-center">
                 <div className="col-lg-5 pb-3 py-lg-5 mx-auto">
                     <form>
@@ -30,7 +31,7 @@ function HomeGuest() {
                     </form>
                 </div>
             </div>
-        </div>
+        </Container>
     )
 }
 
