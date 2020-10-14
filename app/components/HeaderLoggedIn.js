@@ -2,6 +2,9 @@ import React from "react"
 
 function HeaderLoggedIn({ setLoggedIn }) {
     function handleSignOut() {
+        localStorage.removeItem("goSocialToken")
+        localStorage.removeItem("goSocialUsername")
+        localStorage.removeItem("goSocialAvatar")
         setLoggedIn(false)
     }
     return (
@@ -14,7 +17,7 @@ function HeaderLoggedIn({ setLoggedIn }) {
                 <span className="chat-count-badge text-white"> </span>
             </span>
             <a href="#" className="mr-2">
-                <img className="small-header-avatar" src="https://gravatar.com/avatar/b9408a09298632b5151200f3449434ef?s=128" />
+                <img className="small-header-avatar" src={localStorage.getItem("goSocialAvatar")} />
             </a>
             <a className="btn btn-sm btn-success mr-2" href="/create-post">
                 Create Post

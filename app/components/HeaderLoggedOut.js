@@ -11,7 +11,10 @@ function HeaderLoggedOut({ setLoggedIn }) {
             const response = await Axios.post("http://localhost:8080/login", { username: username, password: password })
 
             if (response.data) {
-                console.log(response.data)
+                // console.log(response.data)
+                localStorage.setItem("goSocialToken", response.data.token)
+                localStorage.setItem("goSocialUsername", response.data.username)
+                localStorage.setItem("goSocialAvatar", response.data.avatar)
                 setLoggedIn(true)
             } else {
                 console.log("Incorrect Username / Password")

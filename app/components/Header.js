@@ -4,7 +4,7 @@ import HeaderLoggedOut from "./HeaderLoggedOut"
 import HeaderLoggedIn from "./HeaderLoggedIn"
 
 function Header() {
-    const [loggedIn, setLoggedIn] = useState(false)
+    const [loggedIn, setLoggedIn] = useState(Boolean(localStorage.getItem("goSocialToken")))
 
     return (
         <header className="header-bar bg-secondary mb-3">
