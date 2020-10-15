@@ -1,3 +1,4 @@
+/* AXIOS - USER LOGIN */
 import React, { useState } from "react"
 import Axios from "axios"
 
@@ -8,7 +9,7 @@ function HeaderLoggedOut({ setLoggedIn }) {
     async function handleSubmit(e) {
         e.preventDefault()
         try {
-            const response = await Axios.post("http://localhost:8080/login", { username: username, password: password })
+            const response = await Axios.post("/login", { username: username, password: password })
 
             if (response.data) {
                 // console.log(response.data)
