@@ -2,7 +2,7 @@
 import React, { useState } from "react"
 import Container from "./Container"
 import Axios from "axios"
-import { withRouter } from "react-router-dom"
+import { withRouter } from "react-router-dom" /* To use history to redirect */
 
 function CreatePost(props) {
     const [postTitle, setPostTitle] = useState()
@@ -13,7 +13,7 @@ function CreatePost(props) {
 
         try {
             const response = await Axios.post("/create-post", { title: postTitle, body: postBody, token: localStorage.getItem("goSocialToken") })
-            console.log("New Post Created")
+            props.addFlashMessage("New post created.")
             // Redirect to new post URL
             props.history.push(`/post/${response.data}`)
         } catch (e) {
