@@ -2,8 +2,9 @@
 import React, { useState } from "react"
 import Container from "./Container"
 import Axios from "axios"
+import { withRouter } from "react-router-dom"
 
-function CreatePost() {
+function CreatePost(props) {
     const [postTitle, setPostTitle] = useState()
     const [postBody, setPostBody] = useState()
 
@@ -11,8 +12,10 @@ function CreatePost() {
         e.preventDefault()
 
         try {
-            await Axios.post("/create-post", { title: postTitle, body: postBody, token: localStorage.getItem("goSocialToken") })
+            const response = await Axios.post("/create-post", { title: postTitle, body: postBody, token: localStorage.getItem("goSocialToken") })
             console.log("New Post Created")
+            // Redirect to new post URL
+            props.history.push(`/post/${response.data}`)
         } catch (e) {
             console.log(e.response.data)
         }
@@ -41,4 +44,4 @@ function CreatePost() {
     )
 }
 
-export default CreatePost
+export default withRouter(CreatePost)

@@ -9,6 +9,7 @@ function HeaderLoggedIn({ setLoggedIn }) {
         localStorage.removeItem("goSocialUsername")
         localStorage.removeItem("goSocialAvatar")
         setLoggedIn(false)
+        // Redirecting to home page after logging out
         history.push("/")
     }
     return (
